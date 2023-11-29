@@ -1,0 +1,14 @@
+{
+  "name": "redoclytest",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wafer-bw/redoclytest.git"
+  },
+  "scripts": {
+    "docs": "redocly build-docs things@v0 -o docs/index.html",
+    "lint": "redocly lint"
+  },
+  "dependencies": {
+    "@redocly/cli": "^1.5.0"
+  }
+}

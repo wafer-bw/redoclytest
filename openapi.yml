@@ -1,0 +1,63 @@
+openapi: "3.0.0"
+info:
+  version: 0.1.0
+  title: Things API
+  description: API for interacting with the Things domain.
+
+servers:
+  - url: '{scheme}://{hostname}{port}/api/things'
+    variables:
+      scheme:
+        default:
+          http
+      hostname:
+        default:
+          localhost
+      port:
+        default: ':2024'
+
+paths:
+  /:
+    post:
+      summary: Create new Thing
+      operationId: createThing
+      requestBody:
+        description: Thing to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewThing'
+      responses:
+        '200':
+          $ref: '#/components/responses/CreateSuccess'
+
+components:
+  responses:
+    CreateSuccess:
+      description: Thing created successfully.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateReply'
+
+  schemas:
+    NewThing:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          pattern: ^[a-z0-9\-]$
+          minLength: 3
+          maxLength: 128
+      minProperties: 1
+      maxProperties: 2
+      additionalProperties: false
+
+    CreateReply:
+      type: object
+      minProperties: 0
+      maxProperties: 0
+      additionalProperties: false

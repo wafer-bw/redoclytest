@@ -1,0 +1,19 @@
+apis:
+  things@v0:
+    root: openapi.yml
+
+theme:
+  openapi:
+    hideDownloadButton: true
+    schemaExpansionLevel: 5
+    jsonSampleExpandLevel: 5
+    defaultSampleLanguage: curl
+    generateCodeSamples:
+      languages:
+        - lang: curl
+        - lang: Go
+        - lang: JavaScript
+        - lang: C#
+
+rules:
+  info-license: off
