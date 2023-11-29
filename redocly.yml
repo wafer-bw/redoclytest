@@ -4,6 +4,7 @@ apis:
 
 theme:
   openapi:
+    disableSidebar: true
     hideDownloadButton: true
     schemaExpansionLevel: 5
     jsonSampleExpandLevel: 5
